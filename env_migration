@@ -1,0 +1,8 @@
+APP_NAME='Portinos staticIPMicroservice API'
+NODE_ENV=staging
+PORT=3000
+HOST=localhost
+
+REDIS_PORT=
+REDIS_HOST=
+REDIS_PASSWORD=
