@@ -1,0 +1,26 @@
+const Router = require("express");
+const cache = require("../../services/cache.service");
+
+const walmartRouter = new Router();
+walmartRouter.get("api/v1/walmart-scrapping/products", async (_, res) => {
+  try {
+    const data = await cache.get(
+      "static-ip-scrapping-microservice_walmart-scrapping",
+    );
+
+    if (!data)
+      return res.json({
+        name: "walmart",
+        status: "in-process",
+        last_update: new Date(),
+        data: {},
+        errors: {},
+      });
+
+    return res.json(data);
+  } catch (err) {
+    return res.status(500).json({
+      message: err.message,
+    });
+  }
+});
