@@ -9,6 +9,7 @@ module.exports = {
   REDIS_PORT: process.env.REDIS_PORT || "6379",
   REDIS_HOST: process.env.REDIS_HOST || "127.0.0.1",
   REDIS_PASSWORD: process.env.REDIS_PASSWORD || "",
+  REDIS_USERNAME: process.env.REDIS_USERNAME || "default",
 
   // Modules
   WALMART_DATA:
