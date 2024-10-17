@@ -3,6 +3,7 @@ APP_NAME='Portinos staticIPMicroservice API'
 NODE_ENV=staging
 PORT=3000
 HOST=localhost
+WALMART_DATA=https://strapi.staging.portinos.com/v1/api/walmart/get_raw
 
 REDIS_PORT=6379
 REDIS_HOST=
