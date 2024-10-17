@@ -1,4 +1,5 @@
 const cron = require("node-cron");
+const cache = require("../../services/cache.service");
 const { walmartProducts } = require("./walmart-products");
 
 const walmartProductsCron = cron.schedule(
@@ -33,6 +34,7 @@ const walmartProductsCron = cron.schedule(
         }),
       );
     } catch (err) {
+      console.log(err);
       await cache.set(
         "static-ip-scrapping-microservice_walmart-products",
         JSON.stringify({
