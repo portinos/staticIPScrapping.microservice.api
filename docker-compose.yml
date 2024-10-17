@@ -9,5 +9,15 @@ services:
     environment:
       - REDIS_PASSWORD=123
       - REDIS_PORT=6379
+  static-ip-scrapping:
+    build: .
+    depends_on:
+      - redis
+    ports:
+      - ${PORT}:${PORT}
+    links:
+      - redis
+    environment:
+      - REDIS_HOST=redis
 volumes:
   dbdata:
