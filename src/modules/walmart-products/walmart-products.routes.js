@@ -2,7 +2,7 @@ const { Router } = require("express");
 const cache = require("../../services/cache.service");
 
 const walmartRouter = new Router();
-walmartRouter.get("api/v1/walmart-products", async (_, res) => {
+walmartRouter.get("/api/v1/walmart-products", async (_, res) => {
   try {
     const data = await cache.get(
       "static-ip-scrapping-microservice_walmart-scrapping",
