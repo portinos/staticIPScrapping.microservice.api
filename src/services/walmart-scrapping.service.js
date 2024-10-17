@@ -43,7 +43,7 @@ class WalmartScrapping {
     const promises = Object.keys(this.products).map(async (key) => {
       const prod = this.products[key];
       const prodResult = await this.scrappingProductPriceStock(
-        prod.link_direct
+        prod.link_direct,
       );
       if (prodResult.error)
         result.errors[key] = {
@@ -237,6 +237,7 @@ class WalmartScrapping {
     try {
       return page("h1").text();
     } catch (err) {
+      console.log(err);
       return "";
     }
   }
@@ -249,10 +250,11 @@ class WalmartScrapping {
       // Check repeated images
       const imagesNotRepeated = [];
       images.each((_, img) => {
-        const src = $(img).attr("src");
+        const src = page(img).attr("src");
         if (!imagesNotRepeated.includes(src)) imagesNotRepeated.push(img);
       });
       return imagesNotRepeated;
+      // eslint-disable-next-line no-unused-vars
     } catch (err) {
       return [];
     }
@@ -267,6 +269,7 @@ class WalmartScrapping {
 
       if (price === "") throw new Error("No price");
       return price;
+      // eslint-disable-next-line no-unused-vars
     } catch (err) {
       return null;
     }
@@ -276,6 +279,7 @@ class WalmartScrapping {
     try {
       const button = await page('div[data-automation-id="atc"]').text();
       return !!button;
+      // eslint-disable-next-line no-unused-vars
     } catch (err) {
       return null;
     }
