@@ -23,6 +23,7 @@ jobs:
 
               # Now we have got the access of EC2 and we will start the deploy .
               cd /home/ec2-user/project/scrapping &&
+              sudo git checkout staging &&
               sudo git pull &&
               docker-compose up -d --build
             '
