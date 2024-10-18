@@ -22,7 +22,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
 
               # Now we have got the access of EC2 and we will start the deploy .
-              sudo cd /home/ec2-user/project/scrapping &&
+              cd /home/ec2-user/project/scrapping &&
               sudo git pull &&
               docker-compose up -d --build
             '
