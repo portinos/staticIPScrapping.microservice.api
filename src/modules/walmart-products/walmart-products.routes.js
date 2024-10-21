@@ -11,7 +11,7 @@ walmartRouter.get("/api/v1/walmart-products", async (_, res) => {
     if (!data)
       return res.json({
         name: "walmart",
-        status: "in-process",
+        status: "starting",
         last_update: new Date(),
         data: {},
         errors: {},
