@@ -21,3 +21,4 @@ services:
       - REDIS_HOST=redis
 volumes:
   dbdata:
+
