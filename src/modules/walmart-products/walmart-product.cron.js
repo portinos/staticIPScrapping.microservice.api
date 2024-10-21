@@ -3,7 +3,7 @@ const cache = require("../../services/cache.service");
 const { walmartProducts } = require("./walmart-products");
 
 const walmartProductsCron = cron.schedule(
-  "30 * * * *",
+  "45 * * * *",
   async () => {
     try {
       const dataStored = JSON.parse(
