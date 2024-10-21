@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  redis:
+    image: redis:latest
+    restart: always
+    ports:
+      - "6379:6379"
+    environment:
+      - REDIS_PASSWORD=123
+      - REDIS_PORT=6379
+volumes:
+  dbdata:

@@ -3,13 +3,13 @@ const cache = require("../../services/cache.service");
 const { walmartProducts } = require("./walmart-products");
 
 const walmartProductsCron = cron.schedule(
-  "30 * * * *",
+  "45 * * * *",
   async () => {
     try {
       const dataStored = JSON.parse(
         await cache.get("static-ip-scrapping-microservice_walmart-products"),
       );
-      if (dataStored.status === "in-process") return null;
+      if (dataStored?.status === "in-process") return null;
 
       await cache.set(
         "static-ip-scrapping-microservice_walmart-products",
@@ -29,8 +29,8 @@ const walmartProductsCron = cron.schedule(
           name: "walmart",
           status: "finished",
           last_update: new Date(),
-          data: process?.data || {},
-          errors: process?.errors || {},
+          data: Object.keys(process?.data) ? process?.data : {},
+          errors: Object.keys(process?.errors) ? process?.errors : {},
         }),
       );
     } catch (err) {
